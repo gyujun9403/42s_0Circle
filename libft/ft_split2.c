@@ -6,7 +6,7 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 20:40:52 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/08 12:36:25 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/08 15:51:13 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,16 +76,15 @@ char **ft_split(char const *s, char c)
 		while (index_row < cnt[0])
 		{
 			index_col = 0;
-			if (*(s + index_s) == c && *(s + index_s))
-				while (*(s + index_s) == c && *(s + index_s))
-					index_s++;
-			else
-				while (*(s + index_s) != c && *(s + index_s))
-					*(*(pt + index_row) + index_col++) = *(s + index_s++);
+			while (*(s + index_s) == c && *(s + index_s))
+				index_s++;
+			while (*(s + index_s) != c && *(s + index_s))
+				*(*(pt + index_row) + index_col++) = *(s + index_s++);
 			*(*(pt + index_row) + index_col++) = '\0';
 			index_row++;
 			*(pt + index_row) = *(pt + index_row - 1) + index_col;
 		}
+		*(pt + index_row) = NULL;
 		break;
 	}
 
