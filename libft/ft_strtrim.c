@@ -6,7 +6,7 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 11:40:04 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/07 12:50:30 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/07 13:14:09 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char *ft_strtrim(char const *s1, char const *set)
 	}
 	return (pt);
 }
-
+/*
 #include <stdio.h>
 int main (int ac, char **av)
 {
@@ -76,4 +76,4 @@ int main (int ac, char **av)
 	}
 	printf("%s\n", pt);
 	free(pt);
-}
+}*/

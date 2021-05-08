@@ -6,13 +6,13 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 20:49:15 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/03 20:50:03 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/07 18:36:37 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void bzero(void *s, size_t n)
+void ft_bzero(void *s, size_t n)
 {
 	while (n-- > 0)
 		*((char *)s + n) = 0;
