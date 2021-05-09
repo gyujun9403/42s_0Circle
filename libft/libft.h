@@ -6,7 +6,7 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 16:29:42 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/07 18:36:52 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/09 12:31:57 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ void ft_bzero(void *s, size_t n);
 size_t ft_strlen(const char *s);
 int ft_isdigit(int c);
 void *ft_calloc(size_t count, size_t size);
+int ft_atoi(const char *str);
 
 #endif

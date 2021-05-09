@@ -5,99 +5,92 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 13:16:22 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/08 12:34:29 by gyeon            ###   ########.fr       */
+/*   Created: 2021/05/08 21:49:24 by gyeon             #+#    #+#             */
+/*   Updated: 2021/05/08 22:53:03 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t cnt_row (char const *s, char c)
+char *ft_strndup(char const *s, size_t n)
 {
-	size_t num_row;
+	char *pt;
+	size_t index;
 
-	num_row = 0;
-	while (*s)
+	index = 0;
+	pt = (char *)malloc(sizeof(char) * (n + 1));
+	while (index < n)
 	{
-		if (*s && (*s == c))
-		{
-			while (*s && (*s == c))
-				s++;
-		}
-		else
-		{
-			while (*s && (*s != c))
-				s++;
-			num_row++;
-		}
+		*(pt + index) = *(s + index);
+		index++;
 	}
-
-	return num_row;
+	*(pt + index) = '\0';
+	return (pt);
 }
 
-/*void find_StEnd(char const *s, char c, size_t *StEnd)
+size_t cnt_row(char const *s, char c)
 {
+	size_t cnt_row;
 	size_t index_s;
-	
-	index_s = 0;
-	while (*(s + index_s) && *(s + index_s) == c)
-		index_s;
-}*/
-
-char **ft_split(char const *s, char c)
-{
-	char **pt;
-	unsigned char err_flg;
-	size_t num_row;
-	size_t index_row;
-	size_t index_s;
-	size_t index_pt;
 	size_t index_st;
-	size_t index_end;
-	
+
 	index_s = 0;
-	err_flg = 0;
-	num_row = cnt_row(s, c);
-	pt = (char **)malloc((num_row + 1) * sizeof(char *));
-	if (pt == NULL)
-		err_flg = 1;
-	while (index_row < num_row && err_flg == 0)
+	cnt_row = 0;
+	while (*(s + index_s))
 	{	
-		index_st = 0;
-		index_end = 0;
-		index_pt = 0;
 		while (*(s + index_s) && *(s + index_s) == c)
 			index_s++;
 		index_st = index_s;
 		while (*(s + index_s) && *(s + index_s) != c)
 			index_s++;
-		index_end = index_s;
-		*(pt + index_row) = 
-			(char *)malloc((index_end - index_st + 1) * sizeof(char));
-		if (*(pt + index_row) == NULL)
-		{
-			err_flg = 1;
-			break;
-		}
-		while (index_st < index_end)
-			*(*(pt + index_row) + index_pt++) = *(s + index_st++);
-		*(*(pt + index_row) + index_pt) = '\0';
-		index_row++;
+		if (index_st < index_s)
+			cnt_row++;
 	}
-	if (err_flg == 1 && index_row > 0)
+	return (cnt_row);
+}
+
+void err_free(char **pt, size_t index_row)
+{
+	size_t index;
+
+	index = 0;
+	while (index < index_row)
+		free(*(pt + index));
+	free(pt);
+	pt = NULL;
+}
+
+char **ft_split(char const *s, char c)
+{
+	size_t index_s;
+	size_t index_st;
+	size_t index_row;
+	char **pt;
+
+	index_row = 0;
+	size_t c_row = cnt_row(s, c);
+	pt = (char **)malloc(sizeof(char *) * (cnt_row(s, c) + 1));
+	index_s = 0;
+	while (*(s + index_s) && pt != NULL)
 	{
-		while (index_row >= 0)
-			free(*(pt + index_row--));
-		free(pt);
-		pt = NULL;
+		while (*(s + index_s) && *(s + index_s) == c)
+			index_s++;
+		index_st = index_s;
+		while (*(s + index_s) && *(s + index_s) != c)
+			index_s++;
+		if (index_s > index_st)
+		{
+			*(pt + index_row) = ft_strndup(s + index_st, index_s - index_st);
+			if (*(pt + index_row++) == NULL)
+				err_free(pt, index_row - 1);
+		}
 	}
-	if (err_flg == 0)
+	if (pt != NULL)
 		*(pt + index_row) = NULL;
 	return (pt);
 }
-
 #include <stdio.h>
-int main(int ac, char **av)
+int main (int ac, char **av)
 {
 	char **pt;
 	int i = 0;
