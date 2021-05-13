@@ -1,26 +1,22 @@
 GCC = gcc
 CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
-SRCS = ./*c
+SRCS = $(wildcard ./*.c)
 OBJS = $(SRCS:.c=.o)
 INCLUDE = -I ./libft.h
-TEST = ./test.c
 
 all : $(NAME)
 
 %.o : %.c
-	$(GCC) $(CFLAGS) $(INCLUDE) -c $< -o $o
+	$(GCC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 $(NAME) : $(OBJS)
-	ac rc $(NAME) $(OBJS)
+	ar rcs $@ $^
 
 clean : 
 	rm -f $(OBJS) 
 
 fclean : 
-	rm -f $(TARGET)
+	rm -f $(NAME)
 
 re : fclean all
-
-test : $(TEST)
-	$(GCC) -o test test.c

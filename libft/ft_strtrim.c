@@ -6,13 +6,13 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 11:40:04 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/07 13:14:09 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/11 14:14:39 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t find_lastIndex(char const *s)
+size_t			find_lastindex(char const *s)
 {
 	size_t len;
 
@@ -22,7 +22,7 @@ size_t find_lastIndex(char const *s)
 	return ((len == 0) ? (0) : (len - 1));
 }
 
-unsigned char check_trimable(char c, char const *set)
+unsigned char	check_trimable(char c, char const *set)
 {
 	unsigned char flg;
 
@@ -31,49 +31,38 @@ unsigned char check_trimable(char c, char const *set)
 		if (*(set++) == c)
 		{
 			flg = 1;
-			break;
+			break ;
 		}
 	return (flg);
 }
 
-char *ft_strtrim(char const *s1, char const *set)
-{
-	unsigned char flg_Front;
-	unsigned char flg_Rear;
-	size_t lastIndex;
-	size_t index_pt;
-	size_t index_st;
-	size_t index_fin;
-	char *pt;
+/*
+** flg_fr[0] : flag of front
+** flg_fr[1] : flag of rear
+** index_sf[0] : starting index of s to copy
+** index_sf[1] : finishing index of s to copy
+*/
 
-	lastIndex = find_lastIndex(s1);
-	flg_Front = check_trimable(*s1, set);
-	flg_Rear = check_trimable(*(s1 + lastIndex), set);
-	pt = (char *)malloc(sizeof(char) * (lastIndex + 1) + 1 
-			- flg_Front - flg_Rear);
+char			*ft_strtrim(char const *s1, char const *set)
+{
+	unsigned char	flg_fr[2];
+	size_t			index_last;
+	size_t			index_pt;
+	size_t			index_sf[2];
+	char			*pt;
+
+	index_last = find_lastindex(s1);
+	flg_fr[0] = check_trimable(*s1, set);
+	flg_fr[1] = check_trimable(*(s1 + index_last), set);
+	pt = (char *)malloc(sizeof(char) * (index_last + 1) + 1
+			- flg_fr[0] - flg_fr[1]);
 	if (pt != NULL)
 	{
 		index_pt = 0;
-		index_st = flg_Front;
-		index_fin = lastIndex - flg_Rear;
-		while (index_st <= index_fin)
-			*(pt + index_pt++) = *(s1 + index_st++);
+		index_sf[0] = flg_fr[0];
+		index_sf[1] = index_last - flg_fr[1];
+		while (index_sf[0] <= index_sf[1])
+			*(pt + index_pt++) = *(s1 + index_sf[0]++);
 	}
 	return (pt);
 }
-/*
-#include <stdio.h>
-int main (int ac, char **av)
-{
-	char *pt;
-	if (ac != 3)
-	{
-		pt = ft_strtrim("\n23871\t", "\n");
-	}
-	else
-	{
-		pt = ft_strtrim(av[1], av[2]);
-	}
-	printf("%s\n", pt);
-	free(pt);
-}*/

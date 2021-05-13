@@ -6,15 +6,17 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 21:48:46 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/10 22:02:30 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/11 17:11:46 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_lstiter(t_list *lst, void (*f)(void *))
+#include "libft.h"
+
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	while (lst != NULL)
+	while (lst != NULL && f != NULL)
 	{
-		lst->content = f(lst->content);
+		f(lst->content);
 		lst = lst->next;
 	}
 }
