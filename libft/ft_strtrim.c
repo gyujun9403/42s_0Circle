@@ -6,7 +6,11 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 11:40:04 by gyeon             #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2021/05/13 22:57:46 by gyeon            ###   ########.fr       */
+=======
+/*   Updated: 2021/05/11 14:14:39 by gyeon            ###   ########.fr       */
+>>>>>>> 5cfe6aace1a6ef4b3d36b21c7f68241bdda79be3
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +50,7 @@ unsigned char	check_trimable(char c, char const *set)
 char			*ft_strtrim(char const *s1, char const *set)
 {
 	unsigned char	flg_fr[2];
+<<<<<<< HEAD
 	size_t			i_last;
 	size_t			i_pt;
 	char			*pt;
@@ -66,6 +71,25 @@ char			*ft_strtrim(char const *s1, char const *set)
 			i_pt = 0;
 			ft_strlcpy(pt, s1 + flg_fr[0], i_last + 1 - flg_fr[1]);
 		}
+=======
+	size_t			index_last;
+	size_t			index_pt;
+	size_t			index_sf[2];
+	char			*pt;
+
+	index_last = find_lastindex(s1);
+	flg_fr[0] = check_trimable(*s1, set);
+	flg_fr[1] = check_trimable(*(s1 + index_last), set);
+	pt = (char *)malloc(sizeof(char) * (index_last + 1) + 1
+			- flg_fr[0] - flg_fr[1]);
+	if (pt != NULL)
+	{
+		index_pt = 0;
+		index_sf[0] = flg_fr[0];
+		index_sf[1] = index_last - flg_fr[1];
+		while (index_sf[0] <= index_sf[1])
+			*(pt + index_pt++) = *(s1 + index_sf[0]++);
+>>>>>>> 5cfe6aace1a6ef4b3d36b21c7f68241bdda79be3
 	}
 	return (pt);
 }
