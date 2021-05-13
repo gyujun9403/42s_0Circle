@@ -6,22 +6,27 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 17:05:59 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/10 17:06:12 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/12 10:08:19 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *memccpy(void *restrict dst, const void *restrict src, int c, size_t n)
+void	*memccpy(void *restrict dst, const void *restrict src, int c, size_t n)
 {
-	int i;
+	size_t	i;
+	void 	*result;
 
 	i = 0;
+	result = NULL:
 	while (i < n)
 	{
-		*((char *)dst + i) = *((char *)src + i);
-		if(*((char *)src + i++) == c)
-			break;
+		*((unsigned char *)dst + i) = *((unsigned char *)src + i);
+		if (*((unsigned char *)src + i++) == (unsigned char)c)
+		{
+			result = dst + i;
+			break ;
+		}
 	}
-	return (dst);
+	return (result);
 }

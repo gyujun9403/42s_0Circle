@@ -6,14 +6,13 @@
 /*   By: gyeon <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 12:55:31 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/06 13:12:34 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/11 16:59:10 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
-int ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
-	return ((c >= 'a' && c <= 'z') && 
-		   (c >= 'A' && c <= 'Z'));
+	return ((c >= 'a' && c <= 'z') && (c >= 'A' && c <= 'Z'));
 }

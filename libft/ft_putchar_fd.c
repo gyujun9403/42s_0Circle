@@ -6,13 +6,16 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 11:28:14 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/10 11:54:40 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/13 14:47:40 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, sizeof(char)) ;
+	if (fd < 0)
+		;
+	else
+		write(fd, &c, sizeof(char));
 }

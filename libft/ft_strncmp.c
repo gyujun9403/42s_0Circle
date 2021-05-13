@@ -6,12 +6,13 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 21:01:20 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/05 22:18:55 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/11 13:10:37 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-int ft_strncmp(const char *s1, const char *s2, size_t n)
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t i;
 
@@ -19,7 +20,7 @@ int ft_strncmp(const char *s1, const char *s2, size_t n)
 	while (*(s1 + i) && *(s2 + i) && i < n)
 	{
 		if (*(s1 + i) != *(s2 + i))
-			break;
+			break ;
 		i++;
 	}
 	return (*(s1 + i) - *(s2 + i));

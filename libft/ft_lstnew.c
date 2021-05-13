@@ -6,13 +6,13 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 18:22:06 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/10 22:39:04 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/11 12:26:19 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstnew(void *content)
+t_list	*ft_lstnew(void *content)
 {
 	t_list *pt;
 
