@@ -6,7 +6,7 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 16:29:42 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/11 16:48:44 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/13 22:55:33 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int				ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t			ft_strlen(const char *s);
 size_t			ft_strlcat(char *restrict dst,
 		const char *restrict src, size_t dstsize);
+size_t			ft_strlcpy(char * restrict dst,
+		const char * restrict src, size_t dstsize);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strnstr(const char *haystack,

@@ -6,7 +6,7 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 19:59:03 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/11 17:57:39 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/13 22:58:34 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,19 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*pt;
-	size_t	i;
 
-	i = 0;
-	pt = (char *)malloc(sizeof(char) * len + 1);
-	while (i < len)
+	if (s == NULL)
+		pt = NULL;
+	else
 	{
-		*(pt + i) = *(s + start + i);
-		i++;
+		if (ft_strlen(s) < start + len + 1)
+			pt = ft_calloc(1, sizeof(char));
+		else
+		{
+			pt = (char *)malloc(sizeof(char) * len + 1);
+			if (pt != NULL)
+				ft_strlcpy(pt, s + start, len + 1);
+		}
 	}
 	return (pt);
 }

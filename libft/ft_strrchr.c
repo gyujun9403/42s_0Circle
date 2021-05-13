@@ -6,7 +6,7 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 17:18:54 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/11 14:06:32 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/13 20:50:27 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,15 @@ char	*ft_strrchr(const char *s, int c)
 	result = NULL;
 	leng = ft_strlen(s);
 	while (leng)
-		if (*(s + leng--) == (unsigned char)c)
+	{
+		if (*(s + leng) == (unsigned char)c)
 		{
-			result = (char *)s + leng + 1;
+			result = (char *)s + leng;
 			break ;
 		}
+		leng--;
+	}
+	if (*s == (unsigned char)c && result == NULL)
+		result = (char *)s;
 	return (result);
 }
