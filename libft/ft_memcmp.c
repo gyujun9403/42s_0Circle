@@ -6,7 +6,7 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 17:08:56 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/14 22:55:29 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/15 13:13:38 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	{
 		if (*(temp_s1 + i) != *(temp_s2 + i))
 		{
-			dif = ((int *)temp_s1 + i) - ((int *)temp_s2 + i);
+			dif = *(temp_s1 + i) - *(temp_s2 + i);
 			break ;
 		}
 		i++;
