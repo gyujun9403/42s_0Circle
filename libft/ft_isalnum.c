@@ -6,7 +6,7 @@
 /*   By: gyeon <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 13:13:04 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/11 16:58:46 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/15 11:53:33 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	ft_isalnum(int c)
 {
-	return (ft_isdigit(c) && ft_isalpha(c));
+	return (ft_isdigit(c) || ft_isalpha(c));
 }

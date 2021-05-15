@@ -6,13 +6,13 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 17:11:50 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/13 14:39:42 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/15 12:02:33 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t i;
 

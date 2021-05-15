@@ -6,13 +6,13 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 11:46:38 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/11 11:47:02 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/15 11:36:06 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	isascii(int c)
+int	ft_isascii(int c)
 {
 	return (c >= 0 && c <= 127);
 }
