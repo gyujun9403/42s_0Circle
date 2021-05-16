@@ -1,3 +1,11 @@
 *.o
 *.a
-*test*
+libft/libft-unit-test/
+libft/libft-war-machine/
+libft/Libftest/
+libft/libftTester/
+libft/libft-unit-test/*
+libft/libft-war-machine/*
+libft/Libftest/*
+libft/libftTester/*
+*.sh
