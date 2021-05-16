@@ -6,7 +6,7 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 21:49:24 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/11 14:36:04 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/16 21:49:46 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,15 @@ char	*ft_strndup(char const *s, size_t n)
 
 	index = 0;
 	pt = (char *)malloc(sizeof(char) * (n + 1));
-	while (index < n)
+	if (pt != NULL)
 	{
-		*(pt + index) = *(s + index);
-		index++;
+		while (index < n)
+		{
+			*(pt + index) = *(s + index);
+			index++;
+		}
+		*(pt + index) = '\0';
 	}
-	*(pt + index) = '\0';
 	return (pt);
 }
 
@@ -60,31 +63,38 @@ void	err_free(char **pt, size_t index_row)
 	pt = NULL;
 }
 
+void	initzero_var(size_t *a, size_t *b, size_t *c)
+{
+	*a = 0;
+	*b = 0;
+	*c = 0;
+}
+
 char	**ft_split(char const *s, char c)
 {
-	size_t	index_s;
-	size_t	index_st;
-	size_t	index_row;
+	size_t	idx_s[2];
+	size_t	idx_row;
 	char	**pt;
 
+	if (s == NULL)
+		return (NULL);
 	pt = (char **)malloc(sizeof(char *) * (cnt_row(s, c) + 1));
-	index_s = 0;
-	index_row = 0;
-	while (*(s + index_s) && pt != NULL)
+	initzero_var(&idx_s[0], &idx_s[1], &idx_row);
+	while (*(s + idx_s[0]) && pt != NULL)
 	{
-		while (*(s + index_s) && *(s + index_s) == c)
-			index_s++;
-		index_st = index_s;
-		while (*(s + index_s) && *(s + index_s) != c)
-			index_s++;
-		if (index_s > index_st)
+		while (*(s + idx_s[0]) && *(s + idx_s[0]) == c)
+			idx_s[0]++;
+		idx_s[1] = idx_s[0];
+		while (*(s + idx_s[0]) && *(s + idx_s[0]) != c)
+			idx_s[0]++;
+		if (idx_s[0] > idx_s[1])
 		{
-			*(pt + index_row) = ft_strndup(s + index_st, index_s - index_st);
-			if (*(pt + index_row++) == NULL)
-				err_free(pt, index_row - 1);
+			*(pt + idx_row) = ft_strndup(s + idx_s[1], idx_s[0] - idx_s[1]);
+			if (*(pt + idx_row++) == NULL)
+				err_free(pt, idx_row - 1);
 		}
 	}
 	if (pt != NULL)
-		*(pt + index_row) = NULL;
+		*(pt + idx_row) = NULL;
 	return (pt);
 }

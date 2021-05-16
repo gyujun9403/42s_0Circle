@@ -6,7 +6,7 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 12:17:30 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/11 17:00:19 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/16 20:47:24 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_itoa(int n)
 {
 	unsigned int	num;
 	short			sign;
-	short			digit;
+	short			index_digit;
 	short			index_st;
 	char			*pt;
 
@@ -42,13 +42,13 @@ char	*ft_itoa(int n)
 	}
 	else
 		num = n;
-	digit = (sign > 0) ? (cnt_digit(num) - 1) : (cnt_digit(num));
-	pt = (char *)ft_calloc(digit + 1, sizeof(char));
+	index_digit = (sign > 0) ? (cnt_digit(num) - 1) : (cnt_digit(num));
+	pt = (char *)ft_calloc(index_digit + 2, sizeof(char));
 	if (sign == -1 && pt != NULL)
 		*(pt + index_st++) = '-';
-	while (digit >= index_st && pt != NULL)
+	while (index_digit >= index_st && pt != NULL)
 	{
-		*(pt + digit--) = num % 10 + '0';
+		*(pt + index_digit--) = num % 10 + '0';
 		num /= 10;
 	}
 	return (pt);

@@ -6,7 +6,7 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 20:41:24 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/14 22:58:33 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/15 16:29:55 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		pt = (char *)malloc((len_s1 + len_s2 + 1) * sizeof(char));
 		if (pt != NULL)
 		{
-			ft_strlcpy(pt, s1, len_s1);
-			ft_strlcat(pt, s2, len_s1 + len_s2 - 1);
+			ft_strlcpy(pt, s1, len_s1 + 1);
+			ft_strlcat(pt, s2, len_s1 + len_s2 + 1);
 		}
 	}
 	return (pt);
