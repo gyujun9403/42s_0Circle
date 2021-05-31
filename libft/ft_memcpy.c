@@ -6,7 +6,7 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 17:09:29 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/15 11:51:15 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/05/31 20:35:45 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	if (dst == NULL && src == NULL)
+	if (dst == src)
 		;
 	else
 	{
