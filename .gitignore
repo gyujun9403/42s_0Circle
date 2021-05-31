@@ -2,6 +2,9 @@
 *.out
 *.a
 *test*
+.*/
+*workspace
+*dSYM/
 libft/libft-unit-test/
 libft/libft-war-machine/
 libft/Libftest/
