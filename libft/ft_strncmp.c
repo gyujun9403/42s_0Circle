@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: gyeon <gyeon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 21:01:20 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/16 18:25:08 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/06/01 14:17:30 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <sys/types.h>
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

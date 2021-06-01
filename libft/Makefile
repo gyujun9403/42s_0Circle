@@ -66,3 +66,5 @@ re : fclean all
 
 bonus : $(OBJS_BONUS)
 	ar rcs $(NAME) $^
+
+.PHONY : all clean fclean re bonus
