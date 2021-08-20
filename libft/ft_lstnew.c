@@ -6,7 +6,7 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 18:22:06 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/11 12:26:19 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/08/20 14:11:36 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list *pt;
+	t_list	*pt;
 
 	pt = (t_list *)malloc(sizeof(t_list));
 	if (pt != NULL)

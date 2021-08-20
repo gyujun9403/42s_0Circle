@@ -6,7 +6,7 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 11:40:04 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/16 21:18:16 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/08/20 14:36:05 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 size_t	find_lastindex(char const *s)
 {
-	size_t len;
+	size_t	len;
 
 	len = 0;
 	while (*(s + len))
 		len++;
-	return ((len == 0) ? (0) : (len - 1));
+	if (len == 0)
+		return (0);
+	else
+		return (len - 1);
 }
 
 size_t	trimable_front(char const *s, char const *set)
@@ -78,11 +81,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 		flg_fr[1] = trimable_rear(s1, set);
 		if (flg_fr[0] + flg_fr[1] < i_last + 1)
 		{
-			pt = (char *)malloc(sizeof(char) *
-				(i_last + 2 - flg_fr[0] - flg_fr[1]));
+			pt = (char *)malloc(sizeof(char)
+					* (i_last + 2 - flg_fr[0] - flg_fr[1]));
 			if (pt != NULL)
 				ft_strlcpy(pt, s1 + flg_fr[0],
-						i_last + 2 - flg_fr[0] - flg_fr[1]);
+					i_last + 2 - flg_fr[0] - flg_fr[1]);
 		}
 		else
 			pt = ft_strdup("\0");

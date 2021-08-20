@@ -6,7 +6,7 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 22:03:39 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/16 19:55:10 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/08/20 14:12:23 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *new;
-	t_list *new_st;
+	t_list	*new;
+	t_list	*new_st;
 
 	new_st = NULL;
 	if (lst != NULL && f != NULL)

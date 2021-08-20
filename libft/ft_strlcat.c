@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gyeon <gyeon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 17:17:45 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/31 19:38:39 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/08/20 14:14:50 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,14 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	index_src = 0;
 	leng_src = ft_strlen(src);
 	while (*(dst + leng_dst))
+	{
 		if (leng_dst++ == dstsize)
 		{
 			--leng_dst;
 			flg = 1;
 			break ;
 		}
+	}
 	if (flg == 0)
 	{
 		while (*(src + index_src) != '\0' && index_src + leng_dst + 1 < dstsize)

@@ -6,7 +6,7 @@
 /*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 21:49:24 by gyeon             #+#    #+#             */
-/*   Updated: 2021/05/16 21:49:46 by gyeon            ###   ########.fr       */
+/*   Updated: 2021/08/20 14:32:10 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ char	*ft_strndup(char const *s, size_t n)
 
 size_t	cnt_row(char const *s, char c)
 {
-	size_t cnt_row;
-	size_t index_s;
-	size_t index_st;
+	size_t	cnt_row;
+	size_t	index_s;
+	size_t	index_st;
 
 	index_s = 0;
 	cnt_row = 0;
@@ -54,7 +54,7 @@ size_t	cnt_row(char const *s, char c)
 
 void	err_free(char **pt, size_t index_row)
 {
-	size_t index;
+	size_t	index;
 
 	index = 0;
 	while (index < index_row)

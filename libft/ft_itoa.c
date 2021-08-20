@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ygj <ygj@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: gyeon <gyeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 12:17:30 by gyeon             #+#    #+#             */
-/*   Updated: 2021/06/01 12:48:24 by ygj              ###   ########.fr       */
+/*   Updated: 2021/08/20 14:52:37 by gyeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,26 @@
 
 short	cnt_digit(unsigned int num)
 {
-	short cnt;
+	short	cnt;
 
-	cnt = (num == 0) ? (1) : (0);
+	if (num == 0)
+		cnt = 1;
+	else
+		cnt = 0;
 	while (num)
 	{
 		num /= 10;
 		cnt++;
 	}
 	return (cnt);
+}
+
+int	get_index_digit(int sign, unsigned int num)
+{
+	if (sign > 0)
+		return (cnt_digit(num) - 1);
+	else
+		return (cnt_digit(num));
 }
 
 char	*ft_itoa(int n)
@@ -42,7 +53,7 @@ char	*ft_itoa(int n)
 	}
 	else
 		num = n;
-	index_digit = (sign > 0) ? (cnt_digit(num) - 1) : (cnt_digit(num));
+	index_digit = get_index_digit(sign, num);
 	pt = (char *)ft_calloc(index_digit + 2, sizeof(char));
 	if (sign == -1 && pt != NULL)
 		*(pt + index_st++) = '-';
